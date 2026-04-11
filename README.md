@@ -123,6 +123,24 @@ proxy_pass http://127.0.0.1:3005;
 - Los tres servicios rotan logs con `max-size=10m` y `max-file=3`.
 - El bind a `127.0.0.1` evita exposicion accidental mientras no exista Nginx delante.
 
+## Validacion del warning de listeners
+
+Si aparece un warning tipo `MaxListenersExceededWarning` sobre `AbortSignal`, el patron problemático suele ser reutilizar el mismo signal global en una tarea recurrente y anadir un listener nuevo en cada espera sin retirarlo cuando el timeout termina de forma normal.
+
+Tras aplicar el fix, la comprobacion mas simple es operativa:
+
+1. Reinicia el servicio con el addon actualizado.
+2. Dejalo correr al menos 12-15 minutos.
+3. Revisa que no vuelva a aparecer el warning en los logs del addon.
+
+Comprobacion rapida:
+
+```sh
+ha addons logs local_happy_server | grep -i MaxListenersExceededWarning
+```
+
+Si ese grep no devuelve nada despues de varias iteraciones del job de metricas, el numero de listeners ya no esta creciendo indefinidamente.
+
 ## Fase 2 con Nginx
 
 Cuando quieras publicarlo con HTTPS:
