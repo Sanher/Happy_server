@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.5
+
+- Alinea este repositorio con la release del addon que corrige la inyeccion del fix de `delay.ts` durante el build.
+- Mantiene la serie de tags sincronizada con la version publicada en el repo padre de addons.
+
 ## 0.1.4
 
 - Documenta el fix del helper `delay` para evitar acumulacion de listeners `abort` sobre un `AbortSignal` reutilizado.
