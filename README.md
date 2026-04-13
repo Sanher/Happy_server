@@ -77,3 +77,22 @@ The parent repository can then synchronize both:
 - wrapper `APP_REF`
 
 from the wrapper tag published here.
+
+## Wrapper-source contract
+
+El repo `Happy_server` ya queda validado como wrapper-source para `sanher-ha-addons`.
+
+Contrato esperado:
+
+- el padre consumira este repo por tag
+- copiara `run.sh`, `patches/` y `wrapper-source.yaml`
+- `wrapper-source.yaml` seguira siendo la fuente de verdad para:
+  - `upstream_repo`
+  - `upstream_ref`
+
+A partir de aqui:
+
+- cada cambio de wrapper debe publicarse en una nueva tag semver
+- el padre sincronizara:
+  - `version`
+  - `APP_REF`
