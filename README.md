@@ -13,6 +13,13 @@ Preparacion pragmatica para levantar `happy-server` con `docker compose`, `postg
 
 La app queda publicada solo en `127.0.0.1:3005` y `127.0.0.1:9090` por defecto. `postgres` y `redis` no exponen puertos al host.
 
+## Alcance respecto a Home Assistant / Supervisor
+
+- Este repositorio no es una `app`/`add-on` nativa de Supervisor: es un servicio auxiliar desplegado con `docker compose`.
+- Por eso no depende de aliases internos del Supervisor ni de la red `hassio`, sino de DNS de Docker Compose (`postgres`, `redis`) y de puertos publicados localmente.
+- El bind por defecto a `127.0.0.1` evita exposicion accidental a la LAN y reduce el riesgo asociado a cambios recientes de Supervisor sobre servicios en `host network`.
+- Los volumenes `happy_data`, `postgres_data` y `redis_data` no forman parte de los backups del Supervisor. Si este stack se usa junto a Home Assistant, hay que respaldarlos aparte o empaquetarlo despues como add-on/app nativa si se quiere cobertura de backups del Supervisor.
+
 ## Discrepancias detectadas entre docs y repo
 
 1. La guia oficial de self-host sigue apuntando a `slopus/happy-server`, pero ese repo esta archivado y remite al monorepo `slopus/happy`.
