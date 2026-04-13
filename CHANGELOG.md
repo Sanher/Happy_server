@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.7
+
+- Reconvierte este repositorio a wrapper source consumible por tag desde el repo padre del add-on.
+- Sube al hijo el `run.sh` canonico y los parches locales usados por el add-on padre.
+- Anade `wrapper-source.yaml` para fijar `upstream_repo` y `upstream_ref` desde la tag del wrapper.
+- Deja `patches/fix-delay-abort-listener.py` como artefacto canonico del parche para el repo padre.
+- Elimina artefactos de repo final por `docker compose` que ya no deben formar parte del wrapper source.
+
 ## 0.1.6
 
 - Alinea este repositorio con la release del addon que robustece la inyeccion del fix de `delay.ts` durante el build.

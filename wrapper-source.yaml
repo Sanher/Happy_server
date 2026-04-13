@@ -1,0 +1,11 @@
+wrapper_name: happy_server
+wrapper_type: home_assistant_wrapper_source
+upstream_repo: https://github.com/slopus/happy.git
+upstream_ref: 279640302e00fefdeab2eca747947a0b74e5dfa7
+runtime_entrypoint: run.sh
+patches_dir: patches
+canonical_patch_artifact: patches/fix-delay-abort-listener.py
+notes:
+  - Parent add-on should consume this repository by tag.
+  - Parent add-on can copy run.sh and patches from this wrapper source.
+  - Parent add-on can pin the third-party upstream using upstream_repo and upstream_ref.

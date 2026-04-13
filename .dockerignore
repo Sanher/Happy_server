@@ -1,6 +1,0 @@
-.git
-.env
-upstream/happy/.git
-upstream/happy/node_modules
-upstream/happy/.next
-upstream/happy/.turbo
