@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.9
+
+- Aligns wrapper-source release metadata with the current `main` branch.
+- Includes the parent notification workflow for semver tag publication.
+- Keeps the child repository consumable by the parent add-on through `APP_REPO` and `APP_REF`.
+
 ## 0.1.7
 
 - Reconvierte este repositorio a wrapper source consumible por tag desde el repo padre del add-on.
